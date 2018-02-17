@@ -4,15 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fond"
     tools:context="fr.perriermathis.chair.HomeActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/version2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkIndigo"
+            android:fontFamily="@font/calm"
+            android:padding="3dp"
+            android:text="@string/version"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@drawable/chair2" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/calm"
+            android:text="@string/welcome"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            app:srcCompat="@drawable/titile" />
+
+        <Button
+            android:id="@+id/sit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/darkIndigo"
+            android:padding="15dp"
+            android:shadowColor="@android:color/background_light"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="@string/enter"
+            android:textColor="@android:color/background_light" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_marginTop="0dp"
+            android:maxHeight="10dp"
+            app:srcCompat="@drawable/freedom" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/darkIndigo"
+            android:fontFamily="@font/calm"
+            android:gravity="center_vertical"
+            android:padding="3dp"
+            android:text="@string/betaMessage"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="603dp" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

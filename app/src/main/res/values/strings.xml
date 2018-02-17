@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Chair</string>
+    <string name="welcome">Welcome on</string>
+    <string name="enter">HAVE A SIT</string>
+    <string name="betaMessage">Thismapp</string>
+    <string name="version">Chair, Version 1.0</string>
 </resources>
