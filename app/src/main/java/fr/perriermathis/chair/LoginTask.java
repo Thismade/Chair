@@ -2,10 +2,7 @@ package fr.perriermathis.chair;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -22,7 +19,7 @@ import java.util.Map;
  * Created by Shormir on 18/02/2018.
  */
 
-class RegisterTask extends AsyncTask<Void, Integer, String> {
+class LoginTask extends AsyncTask<Void, Integer, String> {
 
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
@@ -33,10 +30,10 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
     private String url;
     private Button loginButton;
 
-    public RegisterTask(Context applicationContext, Button loginButton){
+    public LoginTask(Context applicationContext, Button loginButton){
         this.applicationContext = applicationContext;
         this.result = "Connexion";
-        this.url = "http://www.perriermathis.fr/labs/android/php/register.php";
+        this.url = "http://www.perriermathis.fr/labs/android/php/login.php";
         this.loginButton = loginButton;
     }
 
@@ -62,7 +59,6 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
             // Enter URL address where your php file resides
             this.url+="?pseudo="+this.values.get("pseudo");
             this.url+="&password="+this.values.get("password");
-            this.url+="&betaKey="+this.values.get("betaKey");
 
             URL url = new URL(this.url);
             conn = (HttpURLConnection) url.openConnection();
@@ -109,11 +105,6 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
     @Override
     protected void onPostExecute(String result) {
         // Save the data on the phone to login
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this.applicationContext);
-        SharedPreferences.Editor edit = pref.edit();
-        edit.putString("pseudo", this.values.get("pseudo"));
-        edit.putString("betaKey", this.values.get("betaKey"));
-        edit.apply();
         loginButton.setEnabled(true);
         Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_LONG).show();
 

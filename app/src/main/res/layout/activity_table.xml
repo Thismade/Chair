@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/indigo"
-    tools:context="fr.perriermathis.chair.LoginActivity">
+    tools:context="fr.perriermathis.chair.TableActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:background="@color/darkIndigo"
             android:fontFamily="@font/calm"
             android:padding="15dp"
-            android:text="Ma Chaise"
+            android:text="Tables"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
@@ -36,7 +36,7 @@
             android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/calm"
             android:padding="2dp"
-            android:text="connexion"
+            android:text="0 table en cours"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
             android:textSize="14sp"
@@ -45,14 +45,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="325dp"
             android:layout_marginTop="20dp"
             android:layout_weight="5"
             android:orientation="vertical"
             android:padding="0dp"
             android:paddingEnd="25dp"
             android:paddingStart="25dp"
-            android:paddingTop="0dp">
+            android:paddingTop="0dp"
+            android:textAlignment="viewStart">
 
             <TextView
                 android:id="@+id/title2"
@@ -62,85 +63,34 @@
                 android:fontFamily="@font/calm"
                 android:padding="0dp"
                 android:paddingBottom="0dp"
-                android:text="Vos Informations"
-                android:textAlignment="center"
+                android:text="Bienvenue"
+                android:textAlignment="textStart"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp"
+                android:textSize="30sp"
                 app:layout_constraintVertical_weight="1"
                 tools:layout_editor_absoluteY="395dp" />
 
             <TextView
-                android:id="@+id/title4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:fontFamily="@font/calm"
-                android:padding="0dp"
-                android:paddingBottom="0dp"
-                android:text="Votre pseudonyme"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/background_light"
-                android:textSize="14sp"
-                app:layout_constraintVertical_weight="1"
-                tools:layout_editor_absoluteY="395dp" />
-
-            <EditText
                 android:id="@+id/pseudo"
-                android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-                android:drawableTint="@color/darkIndigo"
-                android:drawablePadding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:ems="10"
-                android:hint="Pseudo"
-                android:inputType="textPersonName"
-                android:textColor="@android:color/background_light"
-                android:textColorLink="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/title5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:fontFamily="@font/calm"
                 android:padding="0dp"
                 android:paddingBottom="0dp"
-                android:text="Votre mot de passe"
+                android:text="pseudo"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/background_light"
-                android:textSize="14sp"
+                android:textSize="45sp"
                 app:layout_constraintVertical_weight="1"
                 tools:layout_editor_absoluteY="395dp" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                android:drawablePadding="5dp"
-                android:drawableTint="@color/darkIndigo"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:textColor="@android:color/background_light"
-                android:textColorLink="@android:color/background_light" />
-
-            <Button
-                android:id="@+id/login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/button_style"
-                android:text="LOGIN"
-                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
-            android:layout_height="131dp"
+            android:layout_height="125dp"
             android:layout_marginBottom="25dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/table" />
