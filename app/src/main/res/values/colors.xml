@@ -5,5 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="indigo">#3e50b4</color>
     <color name="darkIndigo">#1e2c7a</color>
+    <color name="Yellow">#f7b80c</color>
     <color name="lightIndigo">#6f7aba</color>
+    <color name="grey">#22263a</color>
 </resources>

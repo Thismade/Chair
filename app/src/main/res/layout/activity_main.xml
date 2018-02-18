@@ -85,7 +85,7 @@
                 tools:layout_editor_absoluteY="395dp" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/pseudo"
                 android:drawableLeft="@drawable/ic_person_outline_black_24dp"
                 android:drawableTint="@color/darkIndigo"
                 android:drawablePadding="5dp"
@@ -114,12 +114,12 @@
                 tools:layout_editor_absoluteY="395dp" />
 
             <EditText
-                android:id="@+id/editText2"
-                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                android:drawableTint="@color/darkIndigo"
-                android:drawablePadding="5dp"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/darkIndigo"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -142,26 +142,26 @@
                 tools:layout_editor_absoluteY="395dp" />
 
             <EditText
-                android:id="@+id/editText4"
-                android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-                android:drawableTint="@color/darkIndigo"
-                android:drawablePadding="5dp"
+                android:id="@+id/beta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/darkIndigo"
                 android:ems="10"
-                android:hint="Beta Key"
+                android:hint="Unique beta key"
                 android:inputType="date"
                 android:textColor="@android:color/background_light"
                 android:textColorLink="@android:color/background_light" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/button_style"
-                android:text="SIT NOW"
-                android:textColor="@android:color/background_light" />
+                android:text="REGISTER"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
