@@ -1,8 +1,10 @@
 package fr.perriermathis.chair;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -35,7 +37,7 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
     public RegisterTask(Context applicationContext){
         this.applicationContext = applicationContext;
         this.result = "Connexion";
-        this.url = "http://www.perriermathis.fr/labs/android/test.php";
+        this.url = "http://www.perriermathis.fr/labs/android/php/register.php";
     }
 
     public void setValue(String key, String value){
@@ -72,7 +74,6 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
-
             int response_code = conn.getResponseCode();
 
             // Check if successful connection made
@@ -88,8 +89,18 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
                 }
 
                 conn.disconnect();
-                this.result = "Reçu: "+result.toString();
+                this.result = result.toString();
                 // Pass data to onPostExecute method
+
+                // Save the data on the phone to login
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("username", this.values.get("pseudo"));
+                edit.putString("betaKey", this.values.get("betaKey"));
+                edit.commit();
+
+                // End
+
                 return (result.toString());
 
             } else {
