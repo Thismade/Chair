@@ -136,9 +136,10 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
         edit.apply();
         loginButton.setEnabled(true);
         Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_LONG).show();
-
-        Intent i = new Intent(this.applicationContext, TableActivity.class);
-        this.applicationContext.startActivity(i);
+        if(this.result.indexOf("Connexion réussie") != -1) {
+            Intent i = new Intent(this.applicationContext, TableActivity.class);
+            this.applicationContext.startActivity(i);
+        }
     }
 
     public Context getApplicationContext() {
