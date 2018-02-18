@@ -1,8 +1,13 @@
 package fr.perriermathis.chair;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
         final EditText password = (EditText) findViewById(R.id.password);
         final EditText key = (EditText) findViewById(R.id.beta);
 
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        String username = pref.getString("pseudo", "DEFAULT");
+
+        if(username != "DEFAULT") {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
         // On met un Listener sur le bouton
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

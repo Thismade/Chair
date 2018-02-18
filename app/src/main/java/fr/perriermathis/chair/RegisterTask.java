@@ -13,8 +13,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,13 +59,29 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
         super.onProgressUpdate(values);
     }
 
+    public byte[] getHash(String password) {
+        MessageDigest digest=null;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        digest.reset();
+        return digest.digest(password.getBytes());
+    }
+
+    static String bin2hex(byte[] data) {
+        return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
+    }
+
     @Override
     protected String doInBackground(Void... arg0) {
         HttpURLConnection conn;
         try {
             // Enter URL address where your php file resides
             this.url+="?pseudo="+this.values.get("pseudo");
-            this.url+="&password="+this.values.get("password");
+            this.url+="&password="+bin2hex(getHash(this.values.get("password")));
             this.url+="&betaKey="+this.values.get("betaKey");
 
             URL url = new URL(this.url);
@@ -117,7 +137,7 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
         loginButton.setEnabled(true);
         Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_LONG).show();
 
-        Intent i = new Intent(this.applicationContext,TableActivity.class);
+        Intent i = new Intent(this.applicationContext, TableActivity.class);
         this.applicationContext.startActivity(i);
     }
 

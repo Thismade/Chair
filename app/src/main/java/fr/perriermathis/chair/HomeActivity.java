@@ -16,9 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent;
         setContentView(R.layout.activity_home);
-        launchAnotherActivity(checkFirstUse());
     }
 
     protected void onResume(){
