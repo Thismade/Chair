@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -46,5 +47,7 @@ public class TableActivity extends AppCompatActivity {
 
         TableAdapter tableAdapter = new TableAdapter(getApplicationContext(), R.layout.table_layout, allTables);
         tables.setAdapter(tableAdapter);
+
+        tables.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide));
     }
 }
