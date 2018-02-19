@@ -22,8 +22,9 @@
             android:fontFamily="@font/calm"
             android:padding="15dp"
             android:text="Tables"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@android:color/background_light"
+            android:drawableRight="@drawable/profile_white"
             android:textSize="24sp"
             app:layout_constraintVertical_weight="1"
             tools:layout_editor_absoluteY="395dp" />

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/indigo"
+    tools:context="fr.perriermathis.chair.ProfileActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="658dp">
+
+        <Button
+            android:id="@+id/retour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/retour_button_style"
+            android:padding="0dp"
+            android:text="RETOUR"
+            android:textColor="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@color/darkIndigo"
+            android:fontFamily="@font/calm"
+            android:padding="15dp"
+            android:text="Mon Profil"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            app:layout_constraintVertical_weight="1"
+            tools:layout_editor_absoluteY="395dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:layout_marginTop="45dp"
+            app:srcCompat="@drawable/user" />
+
+        <TextView
+            android:id="@+id/pseudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/calm"
+            android:padding="0dp"
+            android:paddingBottom="0dp"
+            android:text="Pseudo"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="28sp"
+            app:layout_constraintVertical_weight="1"
+            tools:layout_editor_absoluteY="395dp" />
+
+        <TextView
+            android:id="@+id/rang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/calm"
+            android:padding="0dp"
+            android:paddingBottom="0dp"
+            android:text=".."
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
+            app:layout_constraintVertical_weight="1"
+            tools:layout_editor_absoluteY="395dp" />
+
+        <TextView
+            android:id="@+id/legendeTables"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/background_light"
+            android:fontFamily="@font/calm"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:text="Mes dernières tables"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+        <ListView
+            android:id="@+id/lastTables"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="70dp"
+            android:layout_marginTop="0dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
