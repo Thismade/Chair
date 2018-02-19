@@ -2,7 +2,10 @@ package fr.perriermathis.chair;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -78,7 +81,6 @@ class LoginTask extends AsyncTask<Void, Integer, String> {
             // Enter URL address where your php file resides
             this.url+="?pseudo="+this.values.get("pseudo");
             this.url+="&password="+bin2hex(getHash(this.values.get("password")));
-
             URL url = new URL(this.url);
             conn = (HttpURLConnection) url.openConnection();
             // Setup HttpURLConnection class to send and receive data from php
@@ -125,11 +127,21 @@ class LoginTask extends AsyncTask<Void, Integer, String> {
     protected void onPostExecute(String result) {
         // Save the data on the phone to login
         loginButton.setEnabled(true);
-        Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_SHORT).show();
 
-        if(this.result.indexOf("Connexion réussie") != -1){
+        // Hash du pseudo + Hash du password
+        String attemptedResult = bin2hex(getHash(this.values.get("pseudo")))+bin2hex(getHash(this.values.get("password")));
+
+        if(this.result.equals(attemptedResult)){
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this.applicationContext);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("pseudo", this.values.get("pseudo"));
+            edit.apply();
+
             Intent i = new Intent(this.applicationContext,TableActivity.class);
             this.applicationContext.startActivity(i);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_SHORT).show();
         }
     }
 

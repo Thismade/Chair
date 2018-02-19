@@ -10,13 +10,16 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Intent login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +32,16 @@ public class MainActivity extends AppCompatActivity {
         final EditText password = (EditText) findViewById(R.id.password);
         final EditText key = (EditText) findViewById(R.id.beta);
 
-        SharedPreferences pref =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        String username = pref.getString("pseudo", "DEFAULT");
+        final TextView registerButton = (TextView) findViewById(R.id.goToLogin);
 
-        if(username != "DEFAULT") {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(login);
+            }
+        });
+
         // On met un Listener sur le bouton
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

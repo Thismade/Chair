@@ -134,11 +134,17 @@ class RegisterTask extends AsyncTask<Void, Integer, String> {
         edit.putString("pseudo", this.values.get("pseudo"));
         edit.putString("betaKey", this.values.get("betaKey"));
         edit.apply();
+
         loginButton.setEnabled(true);
-        Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_LONG).show();
-        if(this.result.indexOf("Connexion réussie") != -1) {
+
+
+        String attemptedResult = bin2hex(getHash(this.values.get("pseudo")))+bin2hex(getHash(this.values.get("password")));
+        if(this.result.equals(attemptedResult)) {
             Intent i = new Intent(this.applicationContext, TableActivity.class);
             this.applicationContext.startActivity(i);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), this.result, Toast.LENGTH_LONG).show();
         }
     }
 
