@@ -41,6 +41,14 @@ public class TableActivity extends AppCompatActivity {
 
         ArrayList<Table> allTables = new ArrayList<>();
         allTables.add(new Table("Table des fêtes", R.drawable.party));
+
+        // Will load from php page all the tables of the database
+/*
+        getAllTablesTask allTablesTask = new getAllTablesTask(getApplicationContext(), allTables);
+        allTablesTask.execute();
+*/
+        // Deprecated
+
         for(int i = 0; i < 15; i++){
             allTables.add(new Table());
         }
