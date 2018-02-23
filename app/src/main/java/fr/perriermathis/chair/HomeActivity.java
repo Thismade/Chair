@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class HomeActivity extends AppCompatActivity {
 
     private  Handler handler;
@@ -17,6 +19,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Table table = new Table();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(table);
+
+        Toast.makeText(getApplicationContext(), json, Toast.LENGTH_LONG).show();
     }
 
     protected void onResume(){
@@ -27,8 +36,8 @@ public class HomeActivity extends AppCompatActivity {
     private Intent checkFirstUse(){
         SharedPreferences pref =
                 PreferenceManager.getDefaultSharedPreferences(this);
-        String username = pref.getString("pseudo", "DEFAULT");
-        Toast.makeText(getApplicationContext(), "Profil trouvé:  "+username, Toast.LENGTH_LONG).show();
+        String username = pref.getString("pseudo", "non trouvé");
+        Toast.makeText(getApplicationContext(), "Profil "+username, Toast.LENGTH_SHORT).show();
         if(username.isEmpty() || username == "DEFAULT"){
             // register
             return new Intent(HomeActivity.this, MainActivity.class);

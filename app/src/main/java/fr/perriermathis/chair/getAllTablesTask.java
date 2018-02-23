@@ -87,18 +87,17 @@ class getAllTablesTask extends AsyncTask<Void, Integer, String> {
                 while ((line = reader.readLine()) != null) {
                     result.append(line);
                 }
-
                 conn.disconnect();
-
-               /*
                 try{
-                    //Table table = gson.fromJson(String.valueOf(result), Table.class);
+                    Gson gson = new Gson();
+                    Table table = gson.fromJson(String.valueOf(result), Table.class);
+                    this.values.add(table);
                 }
                 catch (JsonSyntaxException exception){
                     Log.e("Exception: ",exception.getMessage());
                     if(this.result != null)
-                        Log.e("Received ", this.result.toString());
-                }*/
+                        Log.e("Received ", this.result);
+                }
                 return "ok";
             } else {
                 this.result = "Erreur.. Réessayez";
@@ -113,9 +112,6 @@ class getAllTablesTask extends AsyncTask<Void, Integer, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        // Empty
-        Gson gson = new Gson();
-        Table table = gson.fromJson("{\"id\":\"1\",\"name\":\"Table du DEV\",\"image\":\"2\",\"owner\":\"0\"}", Table.class);
-        this.values.add(table);
+        Toast.makeText(this.applicationContext, "Nombre de tables : "+this.values.size(),Toast.LENGTH_LONG).show();
     }
 }
